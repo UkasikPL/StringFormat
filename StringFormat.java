@@ -38,7 +38,9 @@ public class StringFormat
     
     public Boolean AddFormat(String _VALUE, int _INDEX)
     {
-        return ListOfValue.add(_INDEX,_VALUE);
+        if(!ListOfValue.contains(_VALUE))
+            return ListOfValue.add(_INDEX,_VALUE);
+        return false;
     }
     
     public void SetFormat(StringFormatArray _VALUE_LIST)
@@ -58,8 +60,7 @@ public class StringFormat
     {
         if(_VALUE.contains("-"))
         {
-            String[] data;
-            data = _VALUE.split("-");
+            String[] data = _VALUE.split("-");
             for(String s : data)
             {
                 AddFormat(s);     
